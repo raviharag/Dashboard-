@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Tyre Planning Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #f4f4f4;
+    }
+    h2 {
+      color: #004080;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 12px;
+    }
+    input, select {
+      padding: 8px;
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #004080;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #002f5f;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Tyre Planning Dashboard</h2>
+
+  <label>Order # <input type="text" id="order" /></label>
+  <label>Product Type <input type="text" id="product" /></label>
+  <label>Tyre Size <input type="text" id="tyresize" value="4.00-8" /></label>
+  <label>Tread Pattern <input type="text" id="tread" value="RIB" /></label>
+  <label>Rim Size <input type="text" id="rim" value="3.75" /></label>
+  <label>Compound <input type="text" id="compound" value="NORMAL" /></label>
+  <label>Heel Type <input type="text" id="heelType" value="H250" /></label>
+  <label>Construction <input type="text" id="construction" value="3L BLACK" /></label>
+  <label>Curing Time (min) <input type="number" id="curingTime" value="135" /></label>
+  <label>Curing Temp (°C) <input type="number" id="curingTemp" value="135" /></label>
+
+  <h3>Layer Weights (kg)</h3>
+  <label>Inner Heal <input type="number" id="innerHeal" step="0.01" value="0.340" /></label>
+  <label>Bead Layer <input type="number" id="beadLayer" step="0.01" value="2.500" /></label>
+  <label>Bonding Layer <input type="number" id="bondingLayer" step="0.01" value="2.500" /></label>
+  <label>Soft Layer <input type="number" id="softLayer" step="0.01" value="1.440" /></label>
+  <label>Total Weight <input type="number" id="totalWeight" step="0.01" value="6.940" /></label>
+
+  <label>Curing Press # <input type="text" id="press" value="200T" /></label>
+  <label>Heel Making Time <input type="time" id="heelTime" value="12:40" /></label>
+  <label>Curing End Time <input type="text" id="endTime" value="200T Press curing" /></label>
+  <label>Issue Date <input type="date" id="issueDate" /></label>
+
+  <button onclick="saveData()">Save & Update Display</button>
+
+  <script>
+    function saveData() {
+      const data = {
+        order: document.getElementById("order").value,
+        product: document.getElementById("product").value,
+        tyresize: document.getElementById("tyresize").value,
+        tread: document.getElementById("tread").value,
+        rim: document.getElementById("rim").value,
+        compound: document.getElementById("compound").value,
+        heelType: document.getElementById("heelType").value,
+        construction: document.getElementById("construction").value,
+        curingTime: parseInt(document.getElementById("curingTime").value),
+        curingTemp: parseInt(document.getElementById("curingTemp").value),
+        innerHeal: parseFloat(document.getElementById("innerHeal").value),
+        beadLayer: parseFloat(document.getElementById("beadLayer").value),
+        bondingLayer: parseFloat(document.getElementById("bondingLayer").value),
+        softLayer: parseFloat(document.getElementById("softLayer").value),
+        totalWeight: parseFloat(document.getElementById("totalWeight").value),
+        press: document.getElementById("press").value,
+        heelTime: document.getElementById("heelTime").value,
+        endTime: document.getElementById("endTime").value,
+        issueDate: document.getElementById("issueDate").value
+      };
+
+      localStorage.setItem("tyreDisplayData", JSON.stringify(data));
+      alert("Display data updated!");
+    }
+  </script>
+
+</body>
+</html>
