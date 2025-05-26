@@ -73,23 +73,25 @@
       const data = {
         order: document.getElementById("order").value,
         product: document.getElementById("product").value,
-        tyresize: document.getElementById("tyresize").value,
+        tyreSize: document.getElementById("tyresize").value,
         tread: document.getElementById("tread").value,
         rim: document.getElementById("rim").value,
         compound: document.getElementById("compound").value,
         heelType: document.getElementById("heelType").value,
         construction: document.getElementById("construction").value,
         curingTime: parseInt(document.getElementById("curingTime").value),
-        curingTemp: parseInt(document.getElementById("curingTemp").value),
+        temp: parseInt(document.getElementById("curingTemp").value),
         innerHeal: parseFloat(document.getElementById("innerHeal").value),
-        beadLayer: parseFloat(document.getElementById("beadLayer").value),
-        bondingLayer: parseFloat(document.getElementById("bondingLayer").value),
-        softLayer: parseFloat(document.getElementById("softLayer").value),
-        totalWeight: parseFloat(document.getElementById("totalWeight").value),
+        bead: parseFloat(document.getElementById("beadLayer").value),
+        bonding: parseFloat(document.getElementById("bondingLayer").value),
+        soft: parseFloat(document.getElementById("softLayer").value),
+        total: parseFloat(document.getElementById("totalWeight").value),
+        totalTarget: parseFloat(document.getElementById("totalWeight").value),
         press: document.getElementById("press").value,
         heelTime: document.getElementById("heelTime").value,
         endTime: document.getElementById("endTime").value,
-        issueDate: document.getElementById("issueDate").value
+        issueDate: document.getElementById("issueDate").value,
+        time: parseInt(document.getElementById("curingTime").value) * 60
       };
 
       localStorage.setItem("tyreDisplayData", JSON.stringify(data));
